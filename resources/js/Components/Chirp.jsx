@@ -1,11 +1,11 @@
-import enie from "dayjs/locale/en-ie";
-import React, { useState } from "react";
 import Dropdown from "@/Components/Dropdown";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
 import { useForm, usePage } from "@inertiajs/react";
+import dayjs from "dayjs";
+import enie from "dayjs/locale/en-ie";
+import relativeTime from "dayjs/plugin/relativeTime";
+import { useState } from "react";
 
 dayjs.extend(relativeTime);
 dayjs.locale(enie);
@@ -77,6 +77,13 @@ export default function Chirp({ chirp }) {
                                 >
                                     Edit
                                 </button>
+                                <Dropdown.Link
+                                    as="button"
+                                    href={route("chirps.destroy", chirp.id)}
+                                    method="delete"
+                                >
+                                    Delete
+                                </Dropdown.Link>
                             </Dropdown.Content>
                         </Dropdown>
                     )}
