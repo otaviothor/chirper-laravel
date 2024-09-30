@@ -1,11 +1,11 @@
 services:
     laravel.test:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.3
+            context: './vendor/laravel/sail/runtimes/8.3'
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: sail-8.3/app
+        image: 'sail-8.3/app'
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -82,7 +82,7 @@ services:
                 - wget
                 - '--no-verbose'
                 - '--spider'
-                - 'http://localhost:7700/health'
+                - 'http://127.0.0.1:7700/health'
             retries: 3
             timeout: 5s
     mailpit:
@@ -93,7 +93,7 @@ services:
         networks:
             - sail
     selenium:
-        image: selenium/standalone-chrome
+        image: selenium/standalone-chromium
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         volumes:
